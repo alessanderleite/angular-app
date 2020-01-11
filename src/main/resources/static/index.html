@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CustomerManagement">
 <head>
 <meta charset="ISO-8859-1">
 <title>CRUD AngularJS and Spring Boot</title>
 </head>
-<body>
+<body ng-controller="CustomerController">
 	<h1>Hello World 2020 !!!</h1>
+	<form>
+		<table>
+			<tr>
+				<th colspan="2">Add/Edit</th>
+			</tr>
+			<tr>
+				<td>Customer Name</td>
+				<td><input type="text" placeholder="enter customer name"/></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" placeholder="enter customer email"/></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Submit" class="blue-button"/></td>
+			</tr>
+		</table>
+	</form>
+	<table>
+		<tr>
+			<th>Customer Name</th>
+			<th>Email</th>
+			<th>Operations</th>
+		</tr>
+		<tr>
+			<td>{{ customer.customerName }}</td>
+			<td>{{ customer.email }}</td>
+			<td><a class="blue-button">Edit</a> | <a class="red-button"></a>Delete</td>
+		</tr>
+	</table>
 </body>
 </html>
