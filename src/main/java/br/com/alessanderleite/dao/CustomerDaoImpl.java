@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import br.com.alessanderleite.model.Customer;
 import br.com.alessanderleite.repository.CustomerRepository;
 
+@Repository
 public class CustomerDaoImpl implements CustomerDao {
 	
 	@Autowired
