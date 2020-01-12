@@ -30,10 +30,13 @@
 			<th>Email</th>
 			<th>Operations</th>
 		</tr>
-		<tr>
+		<tr ng-repeat="customer in customers">
 			<td>{{ customer.customerName }}</td>
 			<td>{{ customer.email }}</td>
-			<td><a class="blue-button">Edit</a> | <a class="red-button"></a>Delete</td>
+			<td>
+				<a ng-click="editCustomer(customer)" class="blue-button">Edit</a> | 
+				<a ng-click="deleteCustomer(customer)" class="red-button"></a>Delete
+			</td>
 		</tr>
 	</table>
 </body>
