@@ -26,11 +26,6 @@ public class CustomerController {
 		return listOfCustomers;
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String goToHomePage() {
-		return "redirect:/getAllCustomers";
-	}
-	
 	@RequestMapping(value = "/addCustomer", method = RequestMethod.POST)
 	public Customer addCustomer(@RequestBody Customer customer) {
 		return customerService.addCustomer(customer);
