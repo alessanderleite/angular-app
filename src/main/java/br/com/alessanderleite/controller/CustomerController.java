@@ -1,6 +1,9 @@
 package br.com.alessanderleite.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,8 +18,22 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 	
+	@RequestMapping(value = "/getAllCustomers", method = RequestMethod.GET)
+	public List<Customer> getAllCustomers(Model model) {
+		List<Customer> listOfCustomers = customerService.getAllCustomers();
+		model.addAttribute("customer", new Customer());
+		model.addAttribute("listOfCustomers", listOfCustomers);
+		return listOfCustomers;
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String goToHomePage() {
+		return "redirect:/getAllCustomers";
+	}
+	
 	@RequestMapping(value = "/addCustomer", method = RequestMethod.POST)
 	public Customer addCustomer(@RequestBody Customer customer) {
 		return customerService.addCustomer(customer);
 	}
+	
 }
