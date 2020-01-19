@@ -12,7 +12,8 @@ app.controller('CustomerController', function($scope, $http) {
 	
 	//Load the data from server
 	_refreshCustomerData()
-	
+
+	//HTTP POST/PUT methods for add/edit customer 
 	$scope.submitCustomer = function() {
 		
 		var method = '';
@@ -36,7 +37,15 @@ app.controller('CustomerController', function($scope, $http) {
 		}).then( _success, _error );
 	};
 	
-	//Populate form fields
+    //HTTP DELETE- delete customer by Id
+    $scope.deleteCustomer = function(customer) {
+        $http({
+            method : 'DELETE',
+            url : '/deleteCustomer/' + customer.id
+        }).then(_success, _error);
+    };// teste
+    
+	//In case of edit, Populate form fields
     $scope.editCustomer = function(customer) {
         $scope.customerForm.customerName = customer.customerName;
         $scope.customerForm.email = customer.email;
