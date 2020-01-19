@@ -2,10 +2,9 @@ package br.com.alessanderleite.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,5 +35,10 @@ public class CustomerController {
 	@RequestMapping(value = "/updateCustomer", method = RequestMethod.PUT)
 	public void updateCustomer(@RequestBody Customer customer) {
 		customerService.updateCustomer(customer);
+	}
+	
+	@RequestMapping(value = "/deleteCustomer/{id}", method = RequestMethod.DELETE)
+	public void deleteCustomer(@PathVariable("id") Long id) {
+		customerService.deleteCustomer(id);
 	}
 }
